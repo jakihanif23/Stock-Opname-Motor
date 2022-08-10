@@ -2,6 +2,8 @@
 
 
 `` npx sequelize-cli ``
+
+
 npx sequelize-cli model:generate --name motorcycle --attributes name:string,categoryId:integer,transmisi:string,cc:integer,stock:integer,price:integer
 
 npx sequelize-cli model:generate --name category --attributes name:string
