@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      category.hasOne(models.motorcyle)
+      category.hasOne(models.motorcycle)
       category.hasMany(models.input)
       category.hasMany(models.output)
     }
