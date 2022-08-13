@@ -1,0 +1,697 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "stock-opname-motor",
+      "contact": {}
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/motorcycles": {
+        "get": {
+          "summary": "localhost:3000/motorcycles",
+          "tags": [
+            "motorcycle"
+          ],
+          "operationId": "localhost:3000/motorcycles",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/motorcycles/add": {
+        "post": {
+          "summary": "localhost:3000/motorcycles/add",
+          "tags": [
+            "motorcycle"
+          ],
+          "operationId": "localhost:3000/motorcycles/add",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "categoryId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "transmisi",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "cc",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "stock",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "price",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/motorcycles/update/2": {
+        "post": {
+          "summary": "localhost:3000/motorcycles/update/2",
+          "tags": [
+            "motorcycle"
+          ],
+          "operationId": "localhost:3000/motorcycles/update/2",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "categoryId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "transmisi",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "cc",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "stock",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "price",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/motorcycles/delete/9": {
+        "get": {
+          "summary": "localhost:3000/motorcycles/delete/9",
+          "tags": [
+            "motorcycle"
+          ],
+          "operationId": "localhost:3000/motorcycles/delete/9",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/motorcycles/1/reports": {
+        "get": {
+          "summary": "localhost:3000/motorcycles/1/reports",
+          "tags": [
+            "motorcycle"
+          ],
+          "operationId": "localhost:3000/motorcycles/1/reports",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/categories/add": {
+        "post": {
+          "summary": "localhost:3000/categories/add",
+          "tags": [
+            "categories"
+          ],
+          "operationId": "localhost:3000/categories/add",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/categories": {
+        "get": {
+          "summary": "localhost:3000/categories",
+          "tags": [
+            "categories"
+          ],
+          "operationId": "localhost:3000/categories",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/categories/delete/4": {
+        "get": {
+          "summary": "localhost:3000/categories/delete/3",
+          "tags": [
+            "categories"
+          ],
+          "operationId": "localhost:3000/categories/delete/3",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/categories/update/2": {
+        "post": {
+          "summary": "localhost:3000/categories/update/2",
+          "tags": [
+            "categories"
+          ],
+          "operationId": "localhost:3000/categories/update/2",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/inputs": {
+        "get": {
+          "summary": "localhost:3000/inputs",
+          "tags": [
+            "input"
+          ],
+          "operationId": "localhost:3000/inputs",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/inputs/add": {
+        "post": {
+          "summary": "localhost:3000/inputs/add",
+          "tags": [
+            "input"
+          ],
+          "operationId": "localhost:3000/inputs/add",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "motorcycleId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "categoryId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "stock",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "motorcycleName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "categoryName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "transmisi",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "cc",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "price",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "reportName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/inputs/delete/5": {
+        "get": {
+          "summary": "localhost:3000/inputs/delete/6",
+          "tags": [
+            "input"
+          ],
+          "operationId": "localhost:3000/inputs/delete/6",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/inputs/update/1": {
+        "post": {
+          "summary": "localhost:3000/inputs/update/1",
+          "tags": [
+            "input"
+          ],
+          "operationId": "localhost:3000/inputs/update/1",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "motorcycleId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "categoryId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "stock",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/outputs/add": {
+        "post": {
+          "summary": "localhost:3000/outputs/add",
+          "tags": [
+            "output"
+          ],
+          "operationId": "localhost:3000/outputs/add",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "motorcycleId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "categoryId",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "stock",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "motorcycleName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "categoryName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "transmisi",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "cc",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "price",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "reportName",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/outputs": {
+        "get": {
+          "summary": "localhost:3000/outputs",
+          "tags": [
+            "output"
+          ],
+          "operationId": "localhost:3000/outputs",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/outputs/delete/2": {
+        "get": {
+          "summary": "localhost:3000/outputs/delete/2",
+          "tags": [
+            "output"
+          ],
+          "operationId": "localhost:3000/outputs/delete/2",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/reports": {
+        "get": {
+          "summary": "localhost:3000/reports",
+          "tags": [
+            "reports"
+          ],
+          "operationId": "localhost:3000/reports",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/": {
+        "get": {
+          "summary": "localhost:3000",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "localhost:3000",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "motorcycle"
+      },
+      {
+        "name": "categories"
+      },
+      {
+        "name": "input"
+      },
+      {
+        "name": "output"
+      },
+      {
+        "name": "reports"
+      },
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }

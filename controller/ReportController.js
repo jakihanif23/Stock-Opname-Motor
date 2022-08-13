@@ -15,7 +15,7 @@ class ReportController {
             model: motorcycle, include:[category]
           }]
         }],
-        order: [["id", "ASC"]],
+        order: [["createdAt", "DESC"]],
       })
       res.render('./report', {reports: getdata})
       // res.json(getdata)
@@ -23,22 +23,22 @@ class ReportController {
       res.json(error)
     }
   }
-  static async getAllInputsReport(req,res){
-    try {
-      let getdata = await report.findAll({
-        include: [{
-          model: input,
-          include: [{
-            model: motorcycle, include:[category]
-          }]
-        }]
-      })
-      res.render('./report/coba.ejs', {reportinput: getdata})
-      // res.json(data)
-    } catch (error) {
-      res.json(error)
-    }
-  }
+  // static async getAllInputsReport(req,res){
+  //   try {
+  //     let getdata = await report.findAll({
+  //       include: [{
+  //         model: input,
+  //         include: [{
+  //           model: motorcycle, include:[category]
+  //         }]
+  //       }]
+  //     })
+  //     res.render('./report/coba.ejs', {reportinput: getdata})
+  //     // res.json(data)
+  //   } catch (error) {
+  //     res.json(error)
+  //   }
+  // }
 }
 
 module.exports = ReportController;

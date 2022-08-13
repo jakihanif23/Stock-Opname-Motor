@@ -9,64 +9,69 @@
     <header>
         <%- include('../part/header.ejs')%>
     </header>
-    <div class="container my-4">
+    <div class="container my-4">    
         <div class="card-body text-center">
-            <h4 class="card-title">Report Input Data</h4>
+
+            <h4 class="card-title">Report Data</h4>
             <main>
                 <div class="jumbotron">
                     <div class="card">
-                        <table class="table table-hover">
-                            <thead>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Number</th>
+                                <th scope="col">Motorcycle Name</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Transmisi</th>
+                                <th scope="col">CC</th>
+                                <th scope="col">Stock In</th>
+                                <th scope="col">Stock Out</th>
+                                <th scope="col">Report Description</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <% reports.forEach((element,index)=>{%>
+                            <tbody>
                                 <tr>
-                                    <th scope="col">Number</th>
-                                    <th scope="col">Motorcycle Name</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Transmisi</th>
-                                    <th scope="col">CC</th>
-                                    <th scope="col">Stock In</th>
-                                    <th scope="col">Stock Out</th>
-                                    <th scope="col">Report Description</th>
-                                    <th scope="col">Date</th>
+                                    <th>
+                                        <%= index + 1%>
+                                    </th>
+                                    <td>
+                                        <%= element.input ? element.input.motorcycle.name :
+                                        element.output.motorcycle.name %>
+                                    </td>
+                                    <td>
+                                        <%= element.input ? element.input.motorcycle.category.name :
+                                        element.output.motorcycle.category.name%>
+                                    </td>
+                                    <td>
+                                        <%= element.input ? element.input.motorcycle.transmisi :
+                                        element.output.motorcycle.transmisi%>
+                                    </td>
+                                    <td>
+                                        <%= element.input ? element.input.motorcycle.cc : element.output.motorcycle.cc%>
+                                    </td>
+                                    <td>
+                                        <%= element.input ? element.input.stock : "-" %>
+                                    </td>
+                                    <td>
+                                        <%= element.output ? element.output.stock : "-" %>
+                                    </td>
+                                    <td>
+                                        <%= element.name%>
+                                    </td>
+                                    <td>
+                                        <%= element.createdAt.toDateString()%>,
+                                        <%= element.createdAt.getHours()%>:<%= String(element.createdAt.getMinutes()).padStart(2, '0')%>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <% reports.forEach((element,index)=>{%>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <%= index + 1%>
-                                        </th>
-                                        <td>
-                                            <%= element.input ? element.input.motorcycle.name : element.output.motorcycle.name %>
-                                        </td>
-                                        <td>
-                                            <%= element.input ? element.input.motorcycle.category.name : element.output.motorcycle.category.name%>
-                                        </td>
-                                        <td>
-                                            <%= element.input ? element.input.motorcycle.transmisi : element.output.motorcycle.transmisi%>
-                                        </td>
-                                        <td>
-                                            <%= element.input ? element.input.motorcycle.cc : element.output.motorcycle.cc%>
-                                        </td>
-                                        <td>
-                                            <%= element.input ? element.input.stock : "-" %>
-                                        </td>
-                                        <td>
-                                            <%= element.output ? element.output.stock : "-" %>
-                                        </td>
-                                        <td>
-                                            <%= element.name%>
-                                        </td>
-                                        <td>
-                                            <%= element.createdAt.toDateString()%>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <%})%>
+                            </tbody>
+                            <%})%>
                         </table>
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
 </body>
 
