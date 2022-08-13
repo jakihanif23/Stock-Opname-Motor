@@ -7,6 +7,7 @@ categoryRouter.get('/delete/:id', CategoryController.deleteCategory)
 
 categoryRouter.post('/add', CategoryController.addCategory)
 
+categoryRouter.get('/update/:id', CategoryController.updateCategoryPage)
 categoryRouter.post('/update/:id', CategoryController.updateCategory)
 
 

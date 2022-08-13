@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     stock: DataTypes.INTEGER,
     price: DataTypes.INTEGER
   }, {
+    hooks: {
+      beforeCreate: function(motorcycle, option) {
+        motorcycle.stock = 0
+      }
+    },
     sequelize,
     modelName: 'motorcycle',
   });

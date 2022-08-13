@@ -2,13 +2,11 @@ const express = require('express')
 const router = express.Router()
 const app = express()
 
-
-app.set('view engine', 'ejs')
-
 router.get('/', (req, res)=>{
-    res.json({
-        message : 'Home Page'
-    })
+    // res.json({
+    //     message : 'Home Page'
+    // })
+    res.render('index.ejs')
 })
 
 const motorcycleRoute = require('./motorcycle')

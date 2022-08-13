@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../part/head.ejs')%>
+</head>
+
+<body>
+    <header>
+        <%- include('../part/header.ejs')%>
+    </header>
+    <div class="container my-4">
+        <div class="card-body text-center">
+     <h4 class="card-title">Motorcycles Data</h4>
+    <main>
+        <div class="jumbotron">
+            <div class="card">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Motorcycle Name</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Transmisi</th>
+                            <th scope="col">CC</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% motorcycles.forEach( element=>{%>
+                            <tr>
+                                <th>
+                                    <%=element.id%>
+                                </th>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <%= element.category.name || ''%>
+                                </td>
+                                <td>
+                                    <%=element.transmisi%>
+                                </td>
+                                <td>
+                                    <%=element.cc%>
+                                </td>
+                                <td>
+                                    <%=element.stock%>
+                                </td>
+                                <td>
+                                    <%=element.price%>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-success" href="/inputs/add/<%=element.id%>"><i
+                                            class="fas fa-trash-alt"></i>Stock In</a>
+                                    <a class="btn btn-sm btn-primary" href="/motorcycles/update/<%=element.id%>">Update</a>
+                                    <a class="btn btn-sm btn-danger" href="/outputs/add/<%=element.id%>">Stock Out</a>
+                                </td>
+
+                            </tr>
+                            <%})%>
+                    </tbody>
+                </table>
+            </div>
+            <a class="btn btn-success" href="/motorcycles/add">Add Motorcycle</a>
+        </div>
+    </main>
+</body>
+
+</html>

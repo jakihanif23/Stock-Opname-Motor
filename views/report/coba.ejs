@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../part/head.ejs')%>
+</head>
+
+<body>
+    <header>
+        <%- include('../part/header.ejs')%>
+    </header>
+    <div class="container my-4">
+        <div class="card-body text-center">
+            <h4 class="card-title">Motorcycle Out Data</h4>
+            <main>
+                <div class="jumbotron">
+                    <div class="card">
+                        <form>
+                            <!-- select buat disable kalo nilai tertentu -->
+                            <select id="coba" aria-label=".form-select-sm example" onChange="check(this)">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                            <input type="text" id="company1" placeholder="CVR number">
+                            <br>
+                            <select name="" onchange="myFunction(event)">
+                                <option disabled selected>Choose Database Type</option>
+                                <option value="Green">green</option>
+                                <option value="Red">red</option>
+                                <option value="Orange">orange</option>
+                                <option value="Black">black</option>
+                            </select>
+
+                            <input id="myText" type="text" value="colors">
+                        </form>
+                        <script>
+                            function check(elem) {
+                                if (document.getElementById('coba').value === '3') {
+                                    document.getElementById('company1').disabled = true
+                                } else {
+                                    document.getElementById('company1').disabled = false
+                                }
+                            }
+                            function myFunction(e) {
+                                document.getElementById("myText").value = e.target.value
+                            }
+                        </script>
+                    </div>
+                </div>
+            </main>
+</body>
+
+</html>

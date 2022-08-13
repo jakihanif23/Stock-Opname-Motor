@@ -5,7 +5,8 @@ inputRouter.get('/', InputController.getAllInputs)
 
 inputRouter.get('/delete/:id', InputController.deleteInput)
 
-inputRouter.post('/add', InputController.addInput)
+inputRouter.get('/add/:id', InputController.addInputPage)
+inputRouter.post('/add/:id', InputController.addInput)
 
 inputRouter.post('/update/:id', InputController.updateInput)
 

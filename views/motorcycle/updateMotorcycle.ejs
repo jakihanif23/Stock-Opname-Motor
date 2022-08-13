@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../part/head.ejs')%>
+</head>
+
+<body>
+  <header>
+    <%- include('../part/header.ejs')%>
+  </header>
+  <div class="modal-content">
+    <div class="card-body text-center">
+      <h4 class="card-title">Update Motorcycle Id <%=datamotor.id%> Page</h4>
+    </div>
+    <div class=" card col-8 offset-2 my-2 p-3">
+      <form action="/motorcycles/update/<%=datamotor.id%>" method="post">
+        <div class="form-group">
+          <label for="listname">Motorcycle</label>
+          <input type="text" class="form-control" name="motorcycleName" value="<%=datamotor.name%>">
+        </div>
+        <div class="form-group">
+          <label for="datepicker" id="categorylabel">Category</label>
+          <select type="text" id="categoryID" class="form-select" name="categoryIdd">
+            <option selected hidden><%=datamotor.category.name.toUpperCase()%></option>
+            <% datacate.forEach(ele=>{%>
+              <option value="<%=ele.id%>">
+                <%=ele.name.toUpperCase()%>
+              </option>
+              <%})%>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="datepicker" id="translabel">Transmisi</label>
+          <select type="text" id="transid" class="form-control" name="transmisi">
+            <option value="" selected hidden><%=datamotor.transmisi.toUpperCase()%></option>
+            <option value="manual">Manual</option>
+            <option value="matic">Automatic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="datepicker">CC</label>
+          <input type="text" class="form-control" name="cc" value="<%=datamotor.cc%>">
+        </div>
+        <div class="form-group">
+          <label for="datepicker">Price</label>
+          <input type="text" class="form-control" name="price" value="<%=datamotor.price%>">
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

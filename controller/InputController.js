@@ -1,4 +1,5 @@
-const { input, motorcycle, category } = require("../models");
+const { json } = require("stream/consumers");
+const { input, motorcycle, category, report } = require("../models");
 
 class InputController {
   static async getAllInputs(req, res) {
@@ -15,54 +16,60 @@ class InputController {
       });
 
       // console.log(typeof get)
-      res.json(get);
+      // res.json(get);
+      res.render('./input', {inputs: get})
     } catch (error) {
       res.json(error);
     }
   }
+  static async addInputPage(req,res){
+    try {
+      const id = +req.params.id
+      let datamotorcycle = await motorcycle.findByPk(id)
+      // console.log(datamotorcycle)
+      res.render('./input/addInput.ejs', {datamotorcycle})
+    } catch (error) {
+      res.json(error)
+    }
+  }
   static async addInput(req, res) {
     try {
-      const { motorcycleId, categoryId, stock } = req.body;
-      let add = await input.create({ motorcycleId, categoryId, stock });
+      const id = +req.params.id
+      const {
+        stock,
+        reportName,
+      } = req.body;
+      // console.log(req.body)
 
-      //getting old stock
-      let findOneMotorcycle = await motorcycle.findByPk(motorcycleId);
-      let oldStock = findOneMotorcycle.dataValues.stock;
+      let motor = await motorcycle.findByPk(id)
+      console.log(motor.dataValues)
 
+      let categoryId = motor.dataValues.categoryId
+      let oldStock = motor.dataValues.stock;
+      // console.log(categoryId)
+      let add = await input.create({ motorcycleId: id, categoryId, stock });
+      let inputId = add.dataValues.id;
+      let outputId = null;
+      let name = reportName;
 
-      // let [create, created] = await motorcycle.findOrCreate({
-      //   where: { id: motorcycleId },
-      //   defaults: {
-      //     name: motorcycleName
-      //   },
-      // });
+      let addreport = await report.create({
+        name,
+        inputId,
+        outputId,
+        motorcycleId: id,
+        categoryId,
+      });
 
-
-
-      // console.log(findOneMotorcycle.dataValues.stock)
-
-      // <menjumlahkan semua data input>
-      // let {count, rows} = await input.findAndCountAll({
-      //   where: {motorcycleId: motorcycleId}
-      // },
-      // )
-      // let arraykosong = []
-      // rows = rows.map(element=>{
-      //   // console.log(element.dataValues.stock)
-      //   arraykosong.push(element.dataValues.stock)
-      // })
-      // console.log(arraykosong)
-
-      // update stock
+      // // update stock
       let updatemotor = await motorcycle.update(
         {
           stock: Number(oldStock) + Number(stock),
         },
         {
-          where: { id: motorcycleId },
+          where: { id: id },
         }
       );
-      res.json(add);
+      res.redirect('/inputs');
     } catch (error) {
       res.json(error);
     }
@@ -78,8 +85,8 @@ class InputController {
       let oldStock = findOneMotorcycle.dataValues.stock;
       // console.log(oldStock)
 
-      let deletedata = await input.destroy({
-        where: { id: id },
+      let deletereport = await report.destroy({
+        where: { inputId: id },
       });
       let updatestockmotor = await motorcycle.update(
         {
@@ -89,8 +96,11 @@ class InputController {
           where: { id: motorid },
         }
       );
+      let deletedata = await input.destroy({
+        where: { id: id },
+      });
       deletedata === 1
-        ? res.json({ message: `success delete id ${id}` })
+        ? res.redirect('/inputs')
         : res.json({ message: `id ${id} not found` });
     } catch (error) {
       res.json(error);
@@ -131,6 +141,97 @@ class InputController {
       ? res.json({ message: `data with id ${id} has been updated` })
       : res.json({ message: `error encountered with id ${id}` });
   }
+  static async notused(req,res){
+    try {
+      const {
+        motorcycleIdd,
+        motorcycleName,
+        categoryIdd,
+        categoryName,
+        transmisi,
+        cc,
+        price,
+        stock,
+        reportName,
+      } = req.body;
+
+      console.log(req.body)
+
+      let [cate, catecreated] = await category.findOrCreate({
+        where: { name: categoryName },
+        defaults: {
+          name: categoryName,
+        },
+      });
+      let categoryId = cate.dataValues.id
+
+      let [motor, motorcreated] = await motorcycle.findOrCreate({
+        where: { name: motorcycleName },
+        defaults: {
+          name: motorcycleName,
+          categoryId: categoryId,
+          transmisi: transmisi,
+          cc: cc,
+          stock: 0,
+          price: price,
+        },
+      });
+      // //getting old stock
+      let oldStock = motor.dataValues.stock;
+      let motorcycleId = motor.dataValues.id;
+      motorcreated === true ? categoryId = motor.dataValues.categoryId : categoryId
+
+      console.log(categoryId)
+
+      // let add = await input.create({ motorcycleId, categoryId, stock });
+      // let inputId = add.dataValues.id;
+      // let outputId = null;
+      // let name = reportName;
+      // // console.log(req.body);
+
+      // let addreport = await report.create({
+      //   name,
+      //   inputId,
+      //   outputId,
+      //   motorcycleId,
+      //   categoryId,
+      // });
+
+      // // update stock
+      // let updatemotor = await motorcycle.update(
+      //   {
+      //     stock: Number(oldStock) + Number(stock),
+      //   },
+      //   {
+      //     where: { id: motorcycleId },
+      //   }
+      // );
+      // res.redirect('/inputs');
+    } catch (error) {
+      res.json(error);
+    }
+  }
 }
 
 module.exports = InputController;
+
+// let [create, created] = await motorcycle.findOrCreate({
+//   where: { id: motorcycleId },
+//   defaults: {
+//     name: motorcycleName
+//   },
+// });
+
+// console.log(findOneMotorcycle.dataValues.stock)
+
+// <menjumlahkan semua data input>
+// let {count, rows} = await input.findAndCountAll({
+//   where: {motorcycleId: motorcycleId}
+// },
+// )
+// let arraykosong = []
+// rows = rows.map(element=>{
+//   // console.log(element.dataValues.stock)
+//   arraykosong.push(element.dataValues.stock)
+// })
+// console.log(arraykosong)

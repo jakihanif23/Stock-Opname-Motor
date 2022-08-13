@@ -7,7 +7,8 @@ class CategoryController {
         order: [["id", "ASC"]],
       });
       // console.log(typeof get)
-      res.json(get);
+      // res.json(get);
+      res.render("./category", { categories: get });
     } catch (error) {
       res.json(error);
     }
@@ -29,7 +30,7 @@ class CategoryController {
         where: { id: id },
       });
       deletedata === 1
-        ? res.json({ message: `success delete id ${id}` })
+        ? res.redirect("/categories")
         : res.json({ message: `id ${id} not found` });
     } catch (error) {
       res.json(error);
@@ -47,8 +48,21 @@ class CategoryController {
       }
     );
     updatedata[0] === 1
-        ? res.json({ message: `data with id ${id} has been updated` })
-        : res.json({ message: `error encountered with id ${id}` });
+      ? res.redirect('/categories')
+      : res.json({ message: `error encountered with id ${id}` });
+  }
+  static async updateCategoryPage(req, res) {
+    try {
+      const id = +req.params.id;
+      let datacate = await category.findOne({
+        where: { id: id },
+      });
+      datacate.dataValues.id === id
+        ? res.render("./category/updateCategory", { datacate })
+        : res.json(`can't find id ${id}`);
+    } catch (error) {
+      res.json(error);
+    }
   }
 }
 
