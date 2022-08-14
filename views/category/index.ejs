@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../part/head.ejs')%>
+</head>
+
+<body>
+    <header>
+        <%- include('../part/header.ejs')%>
+    </header>
+    <div class="container my-4">
+        <div class="card-body text-center">
+     <h4 class="card-title">Categories Data</h4>
+    <main>
+        <div class="jumbotron">
+            <div class="card">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach( element=>{%>
+                            <tr>
+                                <th>
+                                    <%=element.id%>
+                                </th>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" href="/categories/delete/<%=element.id%>"><i
+                                            class="fas fa-trash-alt"></i>Delete</a>
+                                    <a class="btn btn-sm btn-success" href="/categories/update/<%=element.id%>">Update</a>
+                                </td>
+
+                            </tr>
+                            <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

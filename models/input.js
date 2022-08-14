@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       input.belongsTo(models.motorcycle, {foreignKey:'motorcycleId'})
       input.belongsTo(models.category, {foreignKey:'categoryId'})
+
+      //many-to-many
       input.belongsToMany(models.output, {through: models.report})
     }
   }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../part/head.ejs')%>
+</head>
+
+<body>
+  <header>
+    <%- include('../part/header.ejs')%>
+  </header>
+  <div class="modal-content">
+    <div class="card-body text-center">
+      <h4 class="card-title"><%=datamotorcycle.name%> <%=datamotorcycle.cc%> CC Stock Out Page</h4>
+    </div>
+    <div class=" card col-8 offset-2 my-2 p-3">
+      <form action="/outputs/add/<%=datamotorcycle.id%>" method="post">
+        <div class="form-group">
+          <label for="datepicker">Stock Out</label>
+          <input type="text" class="form-control" name="stock" placeholder="Enter Stock Number">
+        </div>
+        <div class="form-group">
+          <label for="datepicker">Description</label>
+          <input type="text" class="form-control" name="reportName"
+            placeholder="input motorcycle (motorcyclename) stock (stock)">
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+
+</html>
